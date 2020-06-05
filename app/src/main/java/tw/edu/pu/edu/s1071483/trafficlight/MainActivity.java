@@ -2,10 +2,14 @@ package tw.edu.pu.edu.s1071483.trafficlight;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +31,21 @@ public class MainActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_main);
+
+        EditText tst = (EditText)findViewById(R.id.editText1);
+        tst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast toast = Toast.makeText(MainActivity.this,
+                        "燈號的秒數不能為空白\n",
+                        Toast.LENGTH_LONG);
+                toast.show();
+
+            }
+        });
+
+
+
     }
 
     public void StartGame(View v){
