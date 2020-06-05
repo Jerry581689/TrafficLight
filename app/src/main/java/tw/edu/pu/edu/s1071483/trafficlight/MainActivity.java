@@ -11,9 +11,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText greenText;
-    EditText yellowText;
-    EditText redText;
+    EditText tst1;
+    EditText tst2;
+    EditText tst3;
 
 
     @Override
@@ -34,23 +34,23 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        greenText = findViewById(R.id.editText1);
-        yellowText = findViewById(R.id.editText2);
-        redText = findViewById(R.id.editText3);
+         tst1 = findViewById(R.id.editText1);
+         tst2 = findViewById(R.id.editText2);
+         tst3 = findViewById(R.id.editText3);
     }
 
     public void StartGame(View v) {
 
-        if (greenText.getText().toString().equals("") || yellowText.getText().toString().equals("") || redText.getText().toString().equals("")) {
+        if (tst1.getText().toString().equals("") || tst2.getText().toString().equals("") || tst3.getText().toString().equals("")) {
             Toast.makeText(this, "燈號的秒數不能為空白", Toast.LENGTH_LONG).show();
-        } else if (greenText.getText().toString().equals("0") || yellowText.getText().equals("0") || redText.getText().toString().equals("0")) {
+        } else if (tst1.getText().toString().equals("0") || tst2.getText().equals("0") || tst3.getText().toString().equals("0")) {
             Toast.makeText(this, "燈號的秒數不能為0", Toast.LENGTH_LONG).show();
         } else {
             Intent it = new Intent();
             it.setClass(this, GameActivity.class);
-            it.putExtra("green", Integer.parseInt(greenText.getText().toString()));
-            it.putExtra("yellow", Integer.parseInt(yellowText.getText().toString()));
-            it.putExtra("red", Integer.parseInt(redText.getText().toString()));
+            it.putExtra("green", Integer.parseInt(tst1.getText().toString()));
+            it.putExtra("yellow", Integer.parseInt(tst2.getText().toString()));
+            it.putExtra("red", Integer.parseInt(tst3.getText().toString()));
             startActivity(it);
             finish();
         }

@@ -41,8 +41,11 @@ public class GameActivity extends AppCompatActivity implements DialogInterface.O
         setContentView(R.layout.activity_game);
 
         GameSV = (GameSurfaceView) findViewById(R.id.GameSV);
+        Intent it = getIntent();
         //設定初始測試之燈號秒數
-        GameSV.SetLightSec(6, 2, 3);
+        GameSV.SetLightSec(it.getIntExtra("green", 0),
+                it.getIntExtra("yellow", 0),
+                it.getIntExtra("red", 0));
 
         handler = new Handler();
         lightTimer = new Handler();
@@ -54,14 +57,14 @@ public class GameActivity extends AppCompatActivity implements DialogInterface.O
         alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("闖紅燈哦 三寶 ");
         alertDialog.setIcon(R.drawable.ic_launcher_background);
-        alertDialog.setPositiveButton("爽拉", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("結束", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
                 finish();
             }
 
         });
-        alertDialog.setNegativeButton("繼續闖紅燈囉", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("在一場", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
