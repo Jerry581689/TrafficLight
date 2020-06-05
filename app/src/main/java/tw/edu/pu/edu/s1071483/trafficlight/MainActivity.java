@@ -41,20 +41,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void StartGame(View v) {
 
-        String g = greenText.getText().toString();
-        String y = yellowText.getText().toString();
-        String r = redText.getText().toString();
-
-        if (g.equals("") || y.equals("") || r.equals("")) {
+        if (greenText.getText().toString().equals("") || yellowText.getText().toString().equals("") || redText.getText().toString().equals("")) {
             Toast.makeText(this, "燈號的秒數不能為空白", Toast.LENGTH_LONG).show();
-        } else if (g.equals("0") || y.equals("0") || r.equals("0")) {
+        } else if (greenText.getText().toString().equals("0") || yellowText.getText().equals("0") || redText.getText().toString().equals("0")) {
             Toast.makeText(this, "燈號的秒數不能為0", Toast.LENGTH_LONG).show();
         } else {
             Intent it = new Intent();
             it.setClass(this, GameActivity.class);
-            it.putExtra("green", Integer.parseInt(g));
-            it.putExtra("yellow", Integer.parseInt(y));
-            it.putExtra("red", Integer.parseInt(r));
+            it.putExtra("green", Integer.parseInt(greenText.getText().toString()));
+            it.putExtra("yellow", Integer.parseInt(yellowText.getText().toString()));
+            it.putExtra("red", Integer.parseInt(redText.getText().toString()));
             startActivity(it);
             finish();
         }
