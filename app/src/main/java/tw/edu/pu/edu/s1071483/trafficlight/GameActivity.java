@@ -51,11 +51,11 @@ public class GameActivity extends AppCompatActivity implements DialogInterface.O
         lightTimer = new Handler();
 
         lightTimer.postDelayed(lightTransfer, 2000);
-        toast = Toast.makeText(this, "還敢闖紅燈啊?!", Toast.LENGTH_LONG);
+        toast = Toast.makeText(this, "闖紅燈啊?!", Toast.LENGTH_LONG);
 
 
         alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("闖紅燈哦 三寶 ");
+        alertDialog.setTitle("闖紅燈哦");
         alertDialog.setIcon(R.drawable.ic_launcher_background);
         alertDialog.setPositiveButton("結束", new DialogInterface.OnClickListener() {
             @Override
